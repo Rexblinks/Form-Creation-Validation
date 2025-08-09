@@ -6,11 +6,12 @@ async function fetchUserData() {
         const response = await fetch(apiUrl);
         const users = await response.json();
 
+        // Clear the loading message
         dataContainer.innerHTML = '';
 
         const userList = document.createElement('ul');
 
-        users.forEach(user => {
+        users.forEach(function(user) {
             const listItem = document.createElement('li');
             listItem.textContent = user.name;
             userList.appendChild(listItem);
